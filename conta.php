@@ -24,5 +24,14 @@ $saldo = $_POST['saldo'];
     <h2>
     <?php echo "O seu saldo: ", $saldo, "€"; ?>
 
+    </h2>
+
+    <h3>
+    <form action="levantamento" method="post">
+
+    <label>Efetuar levantamento: </label>
+    <input type = "submit" name = "Levantar">
+    
+
 </body>
 </html>
