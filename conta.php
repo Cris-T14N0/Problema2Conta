@@ -1,7 +1,33 @@
 <?php
-
+//Puxar dados inseridos da conta
 $nome = $_POST['nome'];
 $saldo = $_POST['saldo'];
+
+//Criar classe da conta
+class conta
+{
+    private $nomeConta;
+    private $saldoConta;
+
+    function __construct($nomeInput, $precoInput)
+    {
+        $this->nomeConta = $nomeInput;
+        $this->saldoConta = $precoInput;
+    }
+
+    public function getnome()
+    {
+        return $this->nomeConta;
+    }
+
+    public function getsaldo()
+    {
+        return $this->saldoConta;
+    }
+}
+
+#Instanciar / Criar conta
+$contaUsuario = new conta($nome, $saldo);
 
 ?>
 
@@ -16,13 +42,13 @@ $saldo = $_POST['saldo'];
 <body>
 
     <p> <h1>
-
-    <?php echo "Bem-vindo ", $nome, "!"; ?>
+    
+    <?php echo "Bem-vindo ", $contaUsuario->getnome(), "!"; ?>
 
     </h1> <p> <br>
 
     <h2>
-    <?php echo "O seu saldo: ", $saldo, "€"; ?>
+    <?php echo "O seu saldo: ", $contaUsuario->getsaldo(), "€"; ?>
 
     </h2>
 
@@ -30,8 +56,7 @@ $saldo = $_POST['saldo'];
     <form action="levantamento" method="post">
 
     <label>Efetuar levantamento: </label>
-    <input type = "submit" name = "Levantar">
+    <input type = "submit" value = "Levantar">
     
-
 </body>
 </html>
